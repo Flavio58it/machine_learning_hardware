@@ -55,6 +55,21 @@ Paper Collection for Machine Learning Hardware
 
 
 ### Neuromorphic Computing
+    - "Improving Robustness of ReRAM-based Spiking Neural Network Accelerator with Stochastic Spike-timing-dependent-plasticity"
+    Submitted on 11 Sep 2019
+    https://arxiv.org/abs/1909.05401
+    Spike-timing-dependent-plasticity (STDP) is an unsupervised learning algorithm for spiking neural network (SNN), which promises to achieve deeper understanding of human brain and more powerful artificial intelligence. While conventional computing system fails to simulate SNN efficiently, process-in-memory (PIM) based on devices such as ReRAM can be used in designing fast and efficient STDP based SNN accelerators, as it operates in high resemblance with biological neural network. However, the real-life implementation of such design still suffers from impact of input noise and device variation. In this work, we present a novel stochastic STDP algorithm that uses spiking frequency information to dynamically adjust synaptic behavior. The algorithm is tested in pattern recognition task with noisy input and shows accuracy improvement over deterministic STDP. In addition, we show that the new algorithm can be used for designing a robust ReRAM based SNN accelerator that has strong resilience to device variation. 
+    
+    - "Mapping Spiking Neural Networks to Neuromorphic Hardware"
+    Submitted on 4 Sep 2019
+    https://arxiv.org/abs/1909.01843
+    Neuromorphic hardware platforms implement biological neurons and synapses to execute spiking neural networks (SNNs) in an energy-efficient manner. We present SpiNeMap, a design methodology to map SNNs to crossbar-based neuromorphic hardware, minimizing spike latency and energy consumption. SpiNeMap operates in two steps: SpiNeCluster and SpiNePlacer. SpiNeCluster is a heuristic-based clustering technique to partition SNNs into clusters of synapses, where intracluster local synapses are mapped within crossbars of the hardware and inter-cluster global synapses are mapped to the shared interconnect. SpiNeCluster minimizes the number of spikes on global synapses, which reduces spike congestion on the shared interconnect, improving application performance. SpiNePlacer then finds the best placement of local and global synapses on the hardware using a meta-heuristic-based approach to minimize energy consumption and spike latency. We evaluate SpiNeMap using synthetic and realistic SNNs on the DynapSE neuromorphic hardware. We show that SpiNeMap reduces average energy consumption by 45% and average spike latency by 21%, compared to state-of-the-art techniques. 
+
+    - "Spiking Neural Networks for Inference and Learning: A Memristor-based Design Perspective"
+    Submitted on 4 Sep 2019
+    https://arxiv.org/abs/1909.01771
+    On metrics of density and power efficiency, neuromorphic technologies have the potential to surpass mainstream computing technologies in tasks where real-time functionality, adaptability, and autonomy are essential. While algorithmic advances in neuromorphic computing are proceeding successfully, the potential of memristors to improve neuromorphic computing have not yet born fruit, primarily because they are often used as a drop-in replacement to conventional memory. However, interdisciplinary approaches anchored in machine learning theory suggest that multifactor plasticity rules matching neural and synaptic dynamics to the device capabilities can take better advantage of memristor dynamics and its stochasticity. Furthermore, such plasticity rules generally show much higher performance than that of classical Spike Time Dependent Plasticity (STDP) rules. This chapter reviews the recent development in learning with spiking neural network models and their possible implementation with memristor-based hardware. 
+
     - "STDP-based Unsupervised Feature Learning using Convolution-over-time in Spiking Neural Networks for Energy-Efficient Neuromorphic Computing"
     December 2018
     https://dl.acm.org/citation.cfm?id=3266229
@@ -82,6 +97,11 @@ Paper Collection for Machine Learning Hardware
 
 
 ### FPGA Implementation
+    - "FusionAccel: A General Re-configurable Deep Learning Inference Accelerator on FPGA for Convolutional Neural Networks"
+    Submitted on 4 Jul 2019
+    https://arxiv.org/abs/1907.02217
+    The deep learning accelerator is one of the methods to accelerate deep learning network computations, which is mainly based on convolutional neural network acceleration. To address the fact that concurrent convolutional neural network accelerators are not solely open-source and the exclusiveness of platforms, FusionAccel, a scalable convolutional neural network accelerator hardware architecture with supporting software is proposed. It can adapt to different network structures and can be reconstructed before compilation and reconfigured at runtime. This paper realizes this RTL convolutional neural network accelerator design and functional verifications on a Xilinx Spartan-6 FPGA. The result is identical to that of Caffe-CPU. Since the entire project is based on RTL, it can be migrated to ASIC after replacing some FPGA-specific IPs. 
+
     - "LUTNet: Rethinking Inference in FPGA Soft Logic"
     Submitted on 1 Apr 2019
     https://arxiv.org/abs/1904.00938
@@ -289,6 +309,11 @@ Paper Collection for Machine Learning Hardware
 
 
 ### ASIC Implementation
+    - "TMA: Tera-MACs/W Neural Hardware Inference Accelerator with a Multiplier-less Massive Parallel Processor"
+    Submitted on 8 Sep 2019
+    https://arxiv.org/abs/1909.04551
+    Computationally intensive Inference tasks of Deep neural networks have enforced revolution of new accelerator architecture to reduce power consumption as well as latency. The key figure of merit in hardware inference accelerators is the number of multiply-and-accumulation operations per watt (MACs/W), where, the state-of-the-arts MACs/W remains several hundreds Giga-MACs/W. We propose a Tera-MACS/W neural hardware inference Accelerator (TMA) with 8-bit activations and scalable integer weights less than 1-byte. The architectures main feature is configurable neural processing element for matrix-vector operations. The proposed neural processing element has Multiplier-less Massive Parallel Processor to work without any multiplications, which makes it attractive for energy efficient high-performance neural network applications. We benchmark our systems latency, power, and performance using Alexnet trained on ImageNet. Finally, we compared our accelerators throughput and power consumption to the prior works. The proposed accelerator outperforms the state of the art in terms of energy and area achieving 2.3 TMACS/W@1.0 V, 65 nm CMOS technology. 
+
     - "HyPar: Towards Hybrid Parallelism for Deep Learning Accelerator Array"
     Submitted on 7 Jan 2019
     https://arxiv.org/abs/1901.02067
@@ -490,6 +515,26 @@ Paper Collection for Machine Learning Hardware
 
 
 ### Analog Implementation
+    - "Fundamental aspects of noise in analog-hardware neural networks"
+    Submitted on 21 Jul 2019
+    https://arxiv.org/abs/1907.09002
+    We study and analyze the fundamental aspects of noise propagation in recurrent as well as deep, multi-layer networks. The main focus of our study are neural networks in analogue hardware, yet the methodology provides insight for networks in general. The system under study consists of noisy linear nodes, and we investigate the signal-to-noise ratio at the network's outputs which is the upper limit to such a system's computing accuracy. We consider additive and multiplicative noise which can be purely local as well as correlated across populations of neurons. This covers the chief internal-perturbations of hardware networks and noise amplitudes were obtained from a physically implemented recurrent neural network and therefore correspond to a real-world system. Analytic solutions agree exceptionally well with numerical data, enabling clear identification of the most critical components and aspects for noise management. Focusing on linear nodes isolates the impact of network connections and allows us to derive strategies for mitigating noise. Our work is the starting point in addressing this aspect of analogue neural networks, and our results identify notoriously sensitive points while simultaneously highlighting the robustness of such computational systems. 
+
+    - "X-CHANGR: Changing Memristive Crossbar Mapping for Mitigating Line-Resistance Induced Accuracy Degradation in Deep Neural Networks"
+    Submitted on 29 Jun 2019
+    https://arxiv.org/abs/1907.00285
+    There is widespread interest in emerging technologies, especially resistive crossbars for accelerating Deep Neural Networks (DNNs). Resistive crossbars offer a highly-parallel and efficient matrix-vector-multiplication (MVM) operation. MVM being the most dominant operation in DNNs makes crossbars ideally suited. However, various sources of device and circuit non-idealities lead to errors in the MVM output, thereby reducing DNN accuracy. Towards that end, we propose crossbar re-mapping strategies to mitigate line-resistance induced accuracy degradation in DNNs, without having to re-train the learned weights, unlike most prior works. Line-resistances degrade the voltage levels along the crossbar columns, thereby inducing more errors at the columns away from the drivers. We rank the DNN weights and kernels based on a sensitivity analysis, and re-arrange the columns such that the most sensitive kernels are mapped closer to the drivers, thereby minimizing the impact of errors on the overall accuracy. We propose two algorithms − static remapping strategy (SRS) and dynamic remapping strategy (DRS), to optimize the crossbar re-arrangement of a pre-trained DNN. We demonstrate the benefits of our approach on a standard VGG16 network trained using CIFAR10 dataset. Our results show that SRS and DRS limit the accuracy degradation to 2.9\% and 2.1\%, respectively, compared to a 5.6\% drop from an as it is mapping of weights and kernels to crossbars. We believe this work brings an additional aspect for optimization, which can be used in tandem with existing mitigation techniques, such as in-situ compensation, technology aware training and re-training approaches, to enhance system performance. 
+
+    - "Mixed-Signal Charge-Domain Acceleration of Deep Neural networks through Interleaved Bit-Partitioned Arithmetic"
+    Submitted on 27 Jun 2019
+    https://arxiv.org/abs/1906.11915
+    Low-power potential of mixed-signal design makes it an alluring option to accelerate Deep Neural Networks (DNNs). However, mixed-signal circuitry suffers from limited range for information encoding, susceptibility to noise, and Analog to Digital (A/D) conversion overheads. This paper aims to address these challenges by offering and leveraging the insight that a vector dot-product (the basic operation in DNNs) can be bit-partitioned into groups of spatially parallel low-bitwidth operations, and interleaved across multiple elements of the vectors. As such, the building blocks of our accelerator become a group of wide, yet low-bitwidth multiply-accumulate units that operate in the analog domain and share a single A/D converter. The low-bitwidth operation tackles the encoding range limitation and facilitates noise mitigation. Moreover, we utilize the switched-capacitor design for our bit-level reformulation of DNN operations. The proposed switched-capacitor circuitry performs the group multiplications in the charge domain and accumulates the results of the group in its capacitors over multiple cycles. The capacitive accumulation combined with wide bit-partitioned operations alleviate the need for A/D conversion per operation. With such mathematical reformulation and its switched-capacitor implementation, we define a 3D-stacked microarchitecture, dubbed BIHIWE. 
+
+    - "Adaptive Precision CNN Accelerator Using Radix-X Parallel Connected Memristor Crossbars"
+    Submitted on 22 Jun 2019
+    https://arxiv.org/abs/1906.09395
+    Neural processor development is reducing our reliance on remote server access to process deep learning operations in an increasingly edge-driven world. By employing in-memory processing, parallelization techniques, and algorithm-hardware co-design, memristor crossbar arrays are known to efficiently compute large scale matrix-vector multiplications. However, state-of-the-art implementations of negative weights require duplicative column wires, and high precision weights using single-bit memristors further distributes computations. These constraints dramatically increase chip area and resistive losses, which lead to increased power consumption and reduced accuracy. In this paper, we develop an adaptive precision method by varying the number of memristors at each crosspoint. We also present a weight mapping algorithm designed for implementation on our crossbar array. This novel algorithm-hardware solution is described as the radix-X Convolutional Neural Network Crossbar Array, and demonstrate how to efficiently represent negative weights using a single column line, rather than double the number of additional columns. Using both simulation and experimental results, we verify that our radix-5 CNN array achieves a validation accuracy of 90.5% on the CIFAR-10 dataset, a 4.5% improvement over binarized neural networks whilst simultaneously reducing crossbar area by 46% over conventional arrays by removing the need for duplicate columns to represent signed weights. 
+    
     - "PUMA: A Programmable Ultra-efficient Memristor-based Accelerator for Machine Learning Inference"
     Submitted on 29 Jan 2019
     https://arxiv.org/abs/1901.10351
