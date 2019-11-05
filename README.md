@@ -2,6 +2,10 @@
 Paper Collection for Machine Learning Hardware
 
 ### Surveys and Reviews
+    - "A Review of Spiking Neuromorphic Hardware Communication Systems"
+    Received August 13, 2019
+    https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8843969
+
     - "An Overview of In-memory Processing with Emerging Non-volatile Memory for Data-intensive Applications"
     Submitted on 15 Jun 2019
     https://arxiv.org/abs/1906.06603
