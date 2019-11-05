@@ -59,6 +59,7 @@ Paper Collection for Machine Learning Hardware
 
 
 ### Neuromorphic Computing
+
     - "Improving Robustness of ReRAM-based Spiking Neural Network Accelerator with Stochastic Spike-timing-dependent-plasticity"
     Submitted on 11 Sep 2019
     https://arxiv.org/abs/1909.05401
@@ -77,7 +78,11 @@ Paper Collection for Machine Learning Hardware
     - "Scaling mixed-signal neuromorphic processors to 28 nm FD-SOI technologies"
     Submitted on 19 Aug 2019
     https://arxiv.org/abs/1908.07411
-    As processes continue to scale aggressively, the design of deep sub-micron, mixed-signal design is becoming more and more challenging. In this paper we present an analysis of scaling multi-core mixed-signal neuromorphic processors to advanced 28 nm FD-SOI nodes. We address analog design issues which arise from the use of advanced process, including the problem of large leakage currents and device mismatch, and asynchronous digital design issues. We present the outcome of Monte Carlo Analysis and circuit simulations of neuromorphic sub threshold analog/digital neuron circuits which reproduce biologically plausible responses. We describe the AER used to implement PCHB based asynchronous QDI routing processes in multi-core neuromorphic architectures and validate their operation via circuit simulation results. Finally we describe the implementation of custom 28 nm CAM based memory resources utilized in these multi-core neuromorphic processor and discuss the possibility of increasing density by using advanced RRAM devices integrated in the 28 nm Fully-Depleted Silicon on Insulator (FD-SOI) process. 
+    As processes continue to scale aggressively, the design of deep sub-micron, mixed-signal design is becoming more and more challenging. In this paper we present an analysis of scaling multi-core mixed-signal neuromorphic processors to advanced 28 nm FD-SOI nodes. We address analog design issues which arise from the use of advanced process, including the problem of large leakage currents and device mismatch, and asynchronous digital design issues. We present the outcome of Monte Carlo Analysis and circuit simulations of neuromorphic sub threshold analog/digital neuron circuits which reproduce biologically plausible responses. We describe the AER used to implement PCHB based asynchronous QDI routing processes in multi-core neuromorphic architectures and validate their operation via circuit simulation results. Finally we describe the implementation of custom 28 nm CAM based memory resources utilized in these multi-core neuromorphic processor and discuss the possibility of increasing density by using advanced RRAM devices integrated in the 28 nm Fully-Depleted Silicon on Insulator (FD-SOI) process.
+
+    - "A Review of Spiking Neuromorphic Hardware Communication Systems"
+    Received August 13, 2019
+    https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8843969
 
     - "STDP-based Unsupervised Feature Learning using Convolution-over-time in Spiking Neural Networks for Energy-Efficient Neuromorphic Computing"
     December 2018
