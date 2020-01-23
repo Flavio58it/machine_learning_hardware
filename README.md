@@ -116,6 +116,13 @@ Paper Collection for Machine Learning Hardware
 
 
 ### FPGA Implementation
+    - "MnnFast: a fast and scalable system architecture for memory-augmented neural networks"
+    June 19 2019
+    https://dl.acm.org/doi/10.1145/3307650.3322214
+    Memory-augmented neural networks are getting more attention from many researchers as they can make an inference with the previous history stored in memory. Especially, among these memory-augmented neural networks, memory networks are known for their huge reasoning power and capability to learn from a large number of inputs rather than other networks. As the size of input datasets rapidly grows, the necessity of large-scale memory networks continuously arises. Such large-scale memory networks provide excellent reasoning power; however, the current computer infrastructure cannot achieve scalable performance due to its limited system architecture.
+    In this paper, we propose MnnFast, a novel system architecture for large-scale memory networks to achieve fast and scalable reasoning performance. We identify the performance problems of the current architecture by conducting extensive performance bottleneck analysis. Our in-depth analysis indicates that the current architecture suffers from three major performance problems: high memory bandwidth consumption, heavy computation, and cache contention. To overcome these performance problems, we propose three novel optimizations. First, to reduce the memory bandwidth consumption, we propose a new column-based algorithm with streaming which minimizes the size of data spills and hides most of the off-chip memory accessing overhead. Second, to decrease the high computational overhead, we propose a zero-skipping optimization to bypass a large amount of output computation. Lastly, to eliminate the cache contention, we propose an embedding cache dedicated to efficiently cache the embedding matrix.
+    Our evaluations show that MnnFast is significantly effective in various types of hardware: CPU, GPU, and FPGA. MnnFast improves the overall throughput by up to 5.38×, 4.34×, and 2.01× on CPU, GPU, and FPGA respectively. Also, compared to CPU-based MnnFast, our FPGA-based MnnFast achieves 6.54× higher energy efficiency.
+
     - "A Data-Center FPGA Acceleration Platform for Convolutional Neural Networks"
     Submitted on 17 Sep 2019
     https://arxiv.org/abs/1909.07973
@@ -333,6 +340,31 @@ Paper Collection for Machine Learning Hardware
 
 
 ### ASIC Implementation
+    - "Laconic Deep Learning Computing"
+    Submitted on 10 May 2018
+    We motivate a method for transparently identifying ineffectual computations in unmodified Deep Learning models and without affecting accuracy. Specifically, we show that if we decompose multiplications down to the bit level the amount of work performed during inference for image classification models can be consistently reduced by two orders of magnitude. In the best case studied of a sparse variant of AlexNet, this approach can ideally reduce computation work by more than 500x. We present Laconic a hardware accelerator that implements this approach to improve execution time, and energy efficiency for inference with Deep Learning Networks. Laconic judiciously gives up some of the work reduction potential to yield a low-cost, simple, and energy efficient design that outperforms other state-of-the-art accelerators. For example, a Laconic configuration that uses a weight memory interface with just 128 wires outperforms a conventional accelerator with a 2K-wire weight memory interface by 2.3x on average while being 2.13x more energy efficient on average. A Laconic configuration that uses a 1K-wire weight memory interface, outperforms the 2K-wire conventional accelerator by 15.4x and is 1.95x more energy efficient. Laconic does not require but rewards advances in model design such as a reduction in precision, the use of alternate numeric representations that reduce the number of bits that are "1", or an increase in weight or activation sparsity.
+    
+    - "Eager Pruning: Algorithm and Architecture Support for Fast Training of Deep Neural Networks"
+    June 2019
+    https://dl.acm.org/doi/10.1145/3307650.3322263
+    Today's big and fast data and the changing circumstance require fast training of Deep Neural Networks (DNN) in various applications. However, training a DNN with tons of parameters involves intensive computation. Enlightened by the fact that redundancy exists in DNNs and the observation that the ranking of the significance of the weights changes slightly during training, we propose Eager Pruning, which speeds up DNN training by moving pruning to an early stage.
+    Eager Pruning is supported by an algorithm and architecture co-design. The proposed algorithm dictates the architecture to identify and prune insignificant weights during training without accuracy loss. A novel architecture is designed to transform the reduced training computation into performance improvement. Our proposed Eager Pruning system gains an average of 1.91x speedup over state-of-the-art hardware accelerator and 6.31x energy-efficiency over Nvidia GPUs.
+
+    - "Accelerating Distributed Reinforcement Learning with In-Switch Computing"
+    June 2019
+    https://jianh.web.engr.illinois.edu/papers/iswitch-isca2019.pdf
+    Reinforcement learning (RL) has attracted much attention recently, as new and emerging AI-based applications are demanding the capabilities to intelligently react to environment changes. Unlike distributed deep neural network (DNN) training, the distributed RL training has its unique workload characteristics - it generates orders of magnitude more iterations with much smaller sized but more frequent gradient aggregations. More specifically, our study with typical RL algorithms shows that their distributed training is latency critical and that the network communication for gradient aggregation occupies up to 83.2% of the execution time of each training iteration.
+    In this paper, we present iSwitch, an in-switch acceleration solution that moves the gradient aggregation from server nodes into the network switches, thus we can reduce the number of network hops for gradient aggregation. This not only reduces the end-to-end network latency for synchronous training, but also improves the convergence with faster weight updates for asynchronous training. Upon the in-switch accelerator, we further reduce the synchronization overhead by conducting on-the-fly gradient aggregation at the granularity of network packets rather than gradient vectors. Moreover, we rethink the distributed RL training algorithms and also propose a hierarchical aggregation mechanism to further increase the parallelism and scalability of the distributed RL training at rack scale.
+    We implement iSwitch using a real-world programmable switch NetFPGA board. We extend the control and data plane of the programmable switch to support iSwitch without affecting its regular network functions. Compared with state-of-the-art distributed training approaches, iSwitch offers a system-level speedup of up to 3.66× for synchronous distributed training and 3.71× for asynchronous distributed training, while achieving better scalability.
+
+    - "TIE: energy-efficient tensor train-based inference engine for deep neural network"
+    June 2019
+    https://dl.acm.org/doi/10.1145/3307650.3322258
+    In the era of artificial intelligence (AI), deep neural networks (DNNs) have emerged as the most important and powerful AI technique. However, large DNN models are both storage and computation intensive, posing significant challenges for adopting DNNs in resource-constrained scenarios. Thus, model compression becomes a crucial technique to ensure wide deployment of DNNs.
+    This paper advances the state-of-the-art by considering tensor train (TT) decomposition, an very promising but yet explored compression technique in architecture domain. The method features with the extremely high compression ratio. However, the challenge is that the inference on the TT-format DNN models inherently incurs massive amount of redundant computations, causing significant energy consumption. Thus, the straightforward application of TT decomposition is not feasible.
+    To address this fundamental challenge, this paper develops a computation-efficient inference scheme for TT-format DNN, which enjoys two key merits: 1) it achieves theoretical limit of number of multiplications, thus eliminating all redundant computations; and 2) the multi-stage processing scheme reduces the intensive memory access to all tensor cores, bringing significant energy saving.
+    Based on the novel inference scheme, we develop TIE, a TT-format compressed DNN-targeted inference engine. TIE is highly flexible, supporting different types of networks for different needs. A 16-processing elements (PE) prototype is implemented using CMOS 28nm technology. Operating on 1000MHz, the TIE accelerator consumes 1.74mm2 and 154.8mW. Compared with EIE, TIE achieves 7.22× ~ 10.66× better area efficiency and 3.03× ~ 4.48× better energy efficiency on different workloads, respectively. Compared with CirCNN, TIE achieves 5.96× and 4.56× higher throughput and energy efficiency, respectively. The results show that TIE exhibits significant advantages over state-of-the-art solutions.
+
     - "LSTM-Sharp: An Adaptable, Energy-Efficient Hardware Accelerator for Long Short-Term Memory"
     Submitted on 4 Nov 2019
     https://arxiv.org/abs/1911.01258
@@ -628,6 +660,11 @@ Paper Collection for Machine Learning Hardware
 
 
 ### Analog Implementation
+    - "Sparse ReRAM engine: joint exploration of activation and weight sparsity in compressed neural networks"
+    June 19 2019
+    https://dl.acm.org/doi/10.1145/3307650.3322271
+    Exploiting model sparsity to reduce ineffectual computation is a commonly used approach to achieve energy efficiency for DNN inference accelerators. However, due to the tightly coupled crossbar structure, exploiting sparsity for ReRAM-based NN accelerator is a less explored area. Existing architectural studies on ReRAM-based NN accelerators assume that an entire crossbar array can be activated in a single cycle. However, due to inference accuracy considerations, matrix-vector computation must be conducted in a smaller granularity in practice, called Operation Unit (OU). An OU-based architecture creates a new opportunity to exploit DNN sparsity. In this paper, we propose the first practical Sparse ReRAM Engine that exploits both weight and activation sparsity. Our evaluation shows that the proposed method is effective in eliminating ineffectual computation, and delivers significant performance improvement and energy savings.
+
     - "Tiny but Accurate: A Pruned, Quantized and Optimized Memristor Crossbar Framework for Ultra Efficient DNN Implementation"
     Submitted on 27 Aug 2019
     https://arxiv.org/abs/1908.10017
