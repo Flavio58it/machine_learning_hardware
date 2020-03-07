@@ -134,6 +134,11 @@ Paper Collection for Machine Learning Hardware
     https://arxiv.org/abs/1909.07973
     Intensive computation is entering data centers with multiple workloads of deep learning. To balance the compute efficiency, performance, and total cost of ownership (TCO), the use of a field-programmable gate array (FPGA) with reconfigurable logic provides an acceptable acceleration capacity and is compatible with diverse computation-sensitive tasks in the cloud. In this paper, we develop an FPGA acceleration platform that leverages a unified framework architecture for general-purpose convolutional neural network (CNN) inference acceleration at a data center. To overcome the computation bound, 4,096 DSPs are assembled and shaped as supertile units (SUs) for different types of convolution, which provide up to 4.2 TOP/s 16-bit fixed-point performance at 500 MHz. The interleaved-task-dispatching method is proposed to map the computation across the SUs, and the memory bound is solved by a dispatching-assembling buffering model and broadcast caches. For various non-convolution operators, a filter processing unit is designed for general-purpose filter-like/pointwise operators. In the experiment, the performances of CNN models running on server-class CPUs, a GPU, and an FPGA are compared. The results show that our design achieves the best FPGA peak performance and a throughput at the same level as that of the state-of-the-art GPU in data centers, with more than 50 times lower latency. 
 
+    - "LUTNet: Learning FPGA Configurations for Highly Efficient Neural Network Inference"
+    Submitted on 24 Oct 2019
+    https://arxiv.org/abs/1910.12625
+    Research has shown that deep neural networks contain significant redundancy, and thus that high classification accuracy can be achieved even when weights and activations are quantized down to binary values. Network binarization on FPGAs greatly increases area efficiency by replacing resource-hungry multipliers with lightweight XNOR gates. However, an FPGA's fundamental building block, the K-LUT, is capable of implementing far more than an XNOR: it can perform any K-input Boolean operation. Inspired by this observation, we propose LUTNet, an end-to-end hardware-software framework for the construction of area-efficient FPGA-based neural network accelerators using the native LUTs as inference operators. We describe the realization of both unrolled and tiled LUTNet architectures, with the latter facilitating smaller, less power-hungry deployment over the former while sacrificing area and energy efficiency along with throughput. For both varieties, we demonstrate that the exploitation of LUT flexibility allows for far heavier pruning than possible in prior works, resulting in significant area savings while achieving comparable accuracy. Against the state-of-the-art binarized neural network implementation, we achieve up to twice the area efficiency for several standard network models when inferencing popular datasets. We also demonstrate that even greater energy efficiency improvements are obtainable.
+
     - "FusionAccel: A General Re-configurable Deep Learning Inference Accelerator on FPGA for Convolutional Neural Networks"
     Submitted on 4 Jul 2019
     https://arxiv.org/abs/1907.02217
@@ -420,6 +425,11 @@ Paper Collection for Machine Learning Hardware
 
 
 ### ASIC Implementation
+    - "SpArch: Efficient Architecture for Sparse Matrix Multiplication"
+    Submitted on 20 Feb 2020
+    https://arxiv.org/abs/2002.08947
+    Generalized Sparse Matrix-Matrix Multiplication (SpGEMM) is a ubiquitous task in various engineering and scientific applications. However, inner product based SpGENN introduces redundant input fetches for mismatched nonzero operands, while outer product based approach suffers from poor output locality due to numerous partial product matrices. Inefficiency in the reuse of either inputs or outputs data leads to extensive and expensive DRAM access. To address this problem, this paper proposes an efficient sparse matrix multiplication accelerator architecture, SpArch, which jointly optimizes the data locality for both input and output matrices. We first design a highly parallelized streaming-based merger to pipeline the multiply and merge stage of partial matrices so that partial matrices are merged on chip immediately after produced. We then propose a condensed matrix representation that reduces the number of partial matrices by three orders of magnitude and thus reduces DRAM access by 5.4x. We further develop a Huffman tree scheduler to improve the scalability of the merger for larger sparse matrices, which reduces the DRAM access by another 1.8x. We also resolve the increased input matrix read induced by the new representation using a row prefetcher with near-optimal buffer replacement policy, further reducing the DRAM access by 1.5x. Evaluated on 20 benchmarks, SpArch reduces the total DRAM access by 2.8x over previous state-of-the-art. On average, SpArch achieves 4x, 19x, 18x, 17x, 1285x speedup and 6x, 164x, 435x, 307x, 62x energy savings over OuterSPACE, MKL, cuSPARSE, CUSP, and ARM Armadillo, respectively.
+
     - "Simba: Scaling Deep-Learning Inference with Multi-Chip-Module-Based Architecture"
     October 2019
     https://dl.acm.org/doi/10.1145/3352460.3358302
@@ -761,6 +771,11 @@ Paper Collection for Machine Learning Hardware
 
 
 ### Analog Implementation
+    - "A New MRAM-based Process In-Memory Accelerator for Efficient Neural Network Training with Floating Point Precision"
+    Submitted on 2 Mar 2020
+    https://arxiv.org/abs/2003.01551
+    The excellent performance of modern deep neural networks (DNNs) comes at an often prohibitive training cost, limiting the rapid development of DNN innovations and raising various environmental concerns. To reduce the dominant data movement cost of training, process in-memory (PIM) has emerged as a promising solution as it alleviates the need to access DNN weights. However, state-of-the-art PIM DNN training accelerators employ either analog/mixed signal computing which has limited precision or digital computing based on a memory technology that supports limited logic functions and thus requires complicated procedure to realize floating point computation. In this paper, we propose a spin orbit torque magnetic random access memory (SOT-MRAM) based digital PIM accelerator that supports floating point precision. Specifically, this new accelerator features an innovative (1) SOT-MRAM cell, (2) full addition design, and (3) floating point computation. Experiment results show that the proposed SOT-MRAM PIM based DNN training accelerator can achieve 3.3x, 1.8x, and 2.5x improvement in terms of energy, latency, and area, respectively, compared with a state-of-the-art PIM based DNN training accelerator.
+
     - "Sparse ReRAM engine: joint exploration of activation and weight sparsity in compressed neural networks"
     June 19 2019
     https://dl.acm.org/doi/10.1145/3307650.3322271
@@ -850,6 +865,11 @@ Paper Collection for Machine Learning Hardware
 
 
 ### Numerical Representation and Quantization
+    - "AdaptivFloat: A Floating-point based Data Type for Resilient Deep Learning Inference"
+    Submitted on 29 Sep 2019
+    https://arxiv.org/abs/1909.13271
+    Conventional hardware-friendly quantization methods, such as fixed-point or integer, tend to perform poorly at very low word sizes as their shrinking dynamic ranges cannot adequately capture the wide data distributions commonly seen in sequence transduction models. We present AdaptivFloat, a floating-point inspired number representation format for deep learning that dynamically maximizes and optimally clips its available dynamic range, at a layer granularity, in order to create faithful encoding of neural network parameters. AdaptivFloat consistently produces higher inference accuracies compared to block floating-point, uniform, IEEE-like float or posit encodings at very low precision (≤ 8-bit) across a diverse set of state-of-the-art neural network topologies. And notably, AdaptivFloat is seen surpassing baseline FP32 performance by up to +0.3 in BLEU score and -0.75 in word error rate at weight bit widths that are ≤ 8-bit. Experimental results on a deep neural network (DNN) hardware accelerator, exploiting AdaptivFloat logic in its computational datapath, demonstrate per-operation energy and area that is 0.9× and 1.14×, respectively, that of equivalent bit width integer-based accelerator variants.
+
     - "TinBiNN: Tiny Binarized Neural Network Overlay in about 5,000 4-LUTs and 5mW"
     Submitted on 5 Mar 2019
     https://arxiv.org/abs/1903.06630
@@ -894,6 +914,11 @@ Paper Collection for Machine Learning Hardware
 
 
 ### Memory Access, Scheduling, Optimization, and Data Structure
+    - "Efficient Memory Management for Deep Neural Net Inference"
+    Submitted on 10 Jan 2020
+    https://arxiv.org/abs/2001.03288
+    While deep neural net inference was considered a task for servers only, latest advances in technology allow the task of inference to be moved to mobile and embedded devices, desired for various reasons ranging from latency to privacy. These devices are not only limited by their compute power and battery, but also by their inferior physical memory and cache, and thus, an efficient memory manager becomes a crucial component for deep neural net inference at the edge. We explore various strategies to smartly share memory buffers among intermediate tensors in deep neural nets. Employing these can result in up to 11% smaller memory footprint than the state of the art.
+
     - "A Data-Centric Approach for Modeling and Estimating Efficiency of Dataflows for Accelerator Design"
     Submitted on 4 May 2018
     https://arxiv.org/abs/1805.02566
@@ -946,6 +971,11 @@ Paper Collection for Machine Learning Hardware
 
 
 ### Compiler and Framework
+    - "AutoDNNchip: An Automated DNN Chip Predictor and Builder for Both FPGAs and ASICs"
+    Submitted on 6 Jan 2020
+    https://arxiv.org/abs/2001.03535
+    Recent breakthroughs in Deep Neural Networks (DNNs) have fueled a growing demand for DNN chips. However, designing DNN chips is non-trivial because: (1) mainstream DNNs have millions of parameters and operations; (2) the large design space due to the numerous design choices of dataflows, processing elements, memory hierarchy, etc.; and (3) an algorithm/hardware co-design is needed to allow the same DNN functionality to have a different decomposition, which would require different hardware IPs to meet the application specifications. Therefore, DNN chips take a long time to design and require cross-disciplinary experts. To enable fast and effective DNN chip design, we propose AutoDNNchip - a DNN chip generator that can automatically generate both FPGA- and ASIC-based DNN chip implementation given DNNs from machine learning frameworks (e.g., PyTorch) for a designated application and dataset. Specifically, AutoDNNchip consists of two integrated enablers: (1) a Chip Predictor, built on top of a graph-based accelerator representation, which can accurately and efficiently predict a DNN accelerator's energy, throughput, and area based on the DNN model parameters, hardware configuration, technology-based IPs, and platform constraints; and (2) a Chip Builder, which can automatically explore the design space of DNN chips (including IP selection, block configuration, resource balancing, etc.), optimize chip design via the Chip Predictor, and then generate optimized synthesizable RTL to achieve the target design metrics. Experimental results show that our Chip Predictor's predicted performance differs from real-measured ones by < 10% when validated using 15 DNN models and 4 platforms (edge-FPGA/TPU/GPU and ASIC). Furthermore, accelerators generated by our AutoDNNchip can achieve better (up to 3.86X improvement) performance than that of expert-crafted state-of-the-art accelerators.
+
     - "An Ultra-Efficient Memristor-Based DNN Framework with Structured Weight Pruning and Quantization Using ADMM"
     Submitted on 29 Aug 2019
     https://arxiv.org/abs/1908.11691
